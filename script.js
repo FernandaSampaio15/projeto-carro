@@ -58,6 +58,7 @@ function reset() {
     document.body.style.color = "white";
 
     result.textContent = "?";
+    car_select = null;
 
     btns_ctrl_none_fun();
 
