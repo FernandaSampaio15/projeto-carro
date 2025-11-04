@@ -71,6 +71,7 @@ function reset() {
 
 }
 
+//Função acelerar
 function acel() {
 
     var top = parseInt(window.getComputedStyle(car_select).top);
@@ -78,7 +79,7 @@ function acel() {
     var left = parseInt(window.getComputedStyle(car_select).left);
     var height = parseInt(window.getComputedStyle(car_select).height);
 
-    if(top >= 1) {
+    if(top >= 20) {
         top -= 1;
         if(car_select == car_red) {
             right += 1;
@@ -95,12 +96,12 @@ function acel() {
     console.log(top);
 }
 
+// Função desacerelar
 function desacel() {
     
     var top = parseInt(window.getComputedStyle(car_select).top);
 
     if(top <= 100) {
-        var top = parseInt(window.getComputedStyle(car_select).top);
         top += 1;
         car_select.style.top = top + "px";
         console.log(top)
@@ -108,9 +109,10 @@ function desacel() {
    
 }
 
+// Função correr com as setas e só permitir o funcionamento com a seleção de um dos carros
 document.addEventListener("keydown", function(event){
 
-    if(result.textContent == "?" || result.textContent == "Selecione primeiro um dos carros.") {
+    if(car_select == null) {
         result.textContent = "Selecione primeiro um dos carros."
     } else {
         var tecla = event.key;
